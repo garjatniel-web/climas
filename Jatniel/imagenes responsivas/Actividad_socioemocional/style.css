@@ -1,0 +1,129 @@
+.nav-item{
+    font-size: large;
+}
+
+body{
+    background-color: rgb(108, 17, 192);
+}
+
+.gradient-text{
+    background: linear-gradient(75.1deg,  rgb(40, 164, 247) 6%, rgb(33, 87, 235) 84.3%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.navbar{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.nav-link.active{
+    background: linear-gradient(75.1deg,  rgb(56, 96, 228) 6%, rgb(46, 92, 245) 84.3%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;}
+    
+    h1{
+        font-weight: bold;
+    }
+
+.cabezera1{
+    background-image: url(img/fondoambiente.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    color: rgb(240, 62, 62);
+}
+
+.cabezera2{
+    background-image: url(img/aguafondo.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    color: rgb(236, 69, 69);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cabezera3{
+    background-image: url(img/animalesfondo.webp);
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    color: rgb(233, 74, 74);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cabezera4{
+    background-image: url(img/plasticosfondo.webp);
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    color: rgb(236, 55, 55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cabezera5{
+    background-image: url(img/reciclajefondo.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    color: rgb(243, 72, 72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gradient-text1{
+    background: linear-gradient(75.1deg,  rgba(34,126,34,1) 6%, rgb(72, 233, 233) 84.3%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-weight: bold;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.gradient-text2{
+    background: linear-gradient(75.1deg,  rgb(14, 9, 159) 6%, rgb(190, 65, 240) 84.3%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-weight: bold;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.gradient-text3{
+    background: linear-gradient(75.1deg,  rgb(199, 153, 16) 6%, rgb(112, 66, 9) 84.3%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-weight: bold;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.gradient-text4{
+    background: linear-gradient(75.1deg,  rgb(216, 68, 233) 6%, rgb(83, 14, 94) 84.3%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-weight: bold;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.gradient-text5{
+    background: linear-gradient(75.1deg,  rgba(34,126,34,1) 6%, rgba(99,226,17,1) 84.3%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-weight: bold;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p{
+    color: #ffffff;
+    margin-left: 200px;
+    margin-right: 200px;
+}

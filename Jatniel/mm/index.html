@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidado del Medio Ambiente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .menu-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .menu-item.agua {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .menu-item.animales {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .menu-item.plastico {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .menu-item.reciclaje {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .menu-item h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .menu-item p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        #contenido {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            display: none;
+        }
+
+        #contenido.active {
+            display: block;
+        }
+
+        #contenido h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        #contenido p {
+            line-height: 1.8;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        #contenido ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        #contenido li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #34495e;
+        }
+
+        .imagen {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .btn-volver {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-volver:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Cuidado del Medio Ambiente</h1>
+
+        <div class="menu-grid" id="menu">
+            <a href="#" class="menu-item agua" onclick="cargarTema('agua'); return false;">
+               
+                <h2>Cuidado del Agua</h2>
+                <p>Aprende a conservar este recurso vital</p>
+            </a>
+
+            <a href="#" class="menu-item animales" onclick="cargarTema('animales'); return false;">
+                <h2>Cuidado de Animales</h2>
+                <p>Protege la fauna de nuestro planeta</p>
+            </a>
+
+            <a href="#" class="menu-item plastico" onclick="cargarTema('plastico'); return false;">
+             
+                <h2>Reducción de Plástico</h2>
+                <p>Disminuye el uso de plásticos</p>
+            </a>
+
+            <a href="#" class="menu-item reciclaje" onclick="cargarTema('reciclaje'); return false;">
+              
+                <h2>Reciclaje</h2>
+                <p>Transforma residuos en recursos</p>
+            </a>
+        </div>
+
+        <div id="contenido"></div>
+    </div>
+
+    <script>
+        const temas = {
+            agua: {
+                titulo: ' Cuidado del Agua',
+                color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                contenido: `
+                    <h2>Cuidado del Agua</h2>
+                    <div class="imagen" style="background-image: url('https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800');"></div>
+                    
+                    <p>El agua es un recurso esencial para la vida en la Tierra. Solo el 2.5% del agua del planeta es dulce, y de esta cantidad, únicamente el 1% está disponible para el consumo humano. Es nuestra responsabilidad cuidarla y preservarla para las futuras generaciones.</p>
+                    
+                    <h3>¿Por qué es importante cuidar el agua?</h3>
+                    <ul>
+                        <li><strong>Recurso limitado:</strong> Aunque parezca abundante, el agua potable es escasa en muchas regiones del mundo</li>
+                        <li><strong>Esencial para la vida:</strong> Todos los seres vivos necesitan agua para sobrevivir</li>
+                        <li><strong>Ecosistemas:</strong> Los ríos, lagos y océanos son hogar de miles de especies</li>
+                        <li><strong>Agricultura:</strong> El 70% del agua dulce se usa para producir alimentos</li>
+                    </ul>
+
+                    <h3>Consejos prácticos para ahorrar agua:</h3>
+                    <ul>
+                        <li>Cierra el grifo mientras te cepillas los dientes o te enjabonas las manos</li>
+                        <li>Toma duchas cortas en lugar de baños largos (ahorra hasta 150 litros por baño)</li>
+                        <li>Repara las fugas inmediatamente (una gota por segundo son 30 litros al día)</li>
+                        <li>Usa lavadoras y lavavajillas solo con carga completa</li>
+                        <li>Instala dispositivos ahorradores en grifos y duchas</li>
+                        <li>Reutiliza el agua de lavar verduras para regar plantas</li>
+                        <li>Riega el jardín temprano en la mañana o al atardecer para evitar evaporación</li>
+                        <li>Usa un vaso de agua para enjuagarte la boca en lugar del grifo abierto</li>
+                    </ul>
+
+                    <p><strong>¡Cada gota cuenta!</strong> Si todos hacemos pequeños cambios en nuestros hábitos diarios, podemos lograr un gran impacto en la conservación del agua.</p>
+                `
+            },
+            animales: {
+                titulo: ' Cuidado de Animales',
+                color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                contenido: `
+                    <h2>Cuidado de Animales</h2>
+                    <div class="imagen" style="background-image: url('https://images.unsplash.com/photo-1497752531616-c3afd9760a11?w=800');"></div>
+                    
+                    <p>Los animales son parte fundamental de nuestros ecosistemas. Desde los polinizadores que ayudan a producir nuestros alimentos hasta los depredadores que mantienen el equilibrio natural, cada especie cumple un papel importante en la naturaleza.</p>
+
+                    <h3>Importancia de proteger a los animales:</h3>
+                    <ul>
+                        <li><strong>Biodiversidad:</strong> Cada especie es única e irreemplazable en el ecosistema</li>
+                        <li><strong>Equilibrio ecológico:</strong> Los animales mantienen el balance natural</li>
+                        <li><strong>Polinización:</strong> Abejas y mariposas son esenciales para la agricultura</li>
+                        <li><strong>Control de plagas:</strong> Muchos animales ayudan a controlar poblaciones de insectos</li>
+                    </ul>
+
+                    <h3>Cómo ayudar a proteger la fauna:</h3>
+                    <ul>
+                        <li>No compres productos derivados de especies en peligro de extinción</li>
+                        <li>Respeta los hábitats naturales y no alimentes animales silvestres</li>
+                        <li>Adopta en lugar de comprar mascotas</li>
+                        <li>Apoya organizaciones de protección animal</li>
+                        <li>Planta flores nativas para ayudar a polinizadores</li>
+                        <li>Reduce el uso de pesticidas que dañan insectos beneficiosos</li>
+                        <li>Si encuentras un animal herido, contacta con profesionales</li>
+                        <li>Educa a otros sobre la importancia de respetar la vida silvestre</li>
+                    </ul>
+
+                    <h3>Cuidado responsable de mascotas:</h3>
+                    <ul>
+                        <li>Proporciona alimentación adecuada y agua fresca diariamente</li>
+                        <li>Lleva a tu mascota al veterinario regularmente</li>
+                        <li>Asegúrate de que haga suficiente ejercicio</li>
+                        <li>Esteriliza o castra para evitar sobrepoblación</li>
+                        <li>Nunca abandones a tu mascota</li>
+                    </ul>
+
+                    <p><strong>Recuerda:</strong> Los animales merecen nuestro respeto y cuidado. Compartimos el planeta con ellos y es nuestra responsabilidad protegerlos.</p>
+                `
+            },
+            plastico: {
+                titulo: 'Reducción de Plástico',
+                color: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                contenido: `
+                    <h2>Reducción de Plástico</h2>
+                    <div class="imagen" style="background-image: url('https://images.unsplash.com/photo-1591084728795-1149f32d9866?w=800');"></div>
+                    
+                    <p>El plástico es uno de los mayores contaminantes de nuestro planeta. Se estima que cada año llegan a los océanos 8 millones de toneladas de plástico. Este material puede tardar hasta 500 años en descomponerse, causando daños graves a la vida marina y a los ecosistemas.</p>
+
+                    <h3>Impacto del plástico en el medio ambiente:</h3>
+                    <ul>
+                        <li><strong>Contaminación oceánica:</strong> Más de 5 billones de piezas de plástico flotan en los océanos</li>
+                        <li><strong>Vida marina:</strong> Miles de animales mueren anualmente por ingerir o enredarse en plástico</li>
+                        <li><strong>Microplásticos:</strong> Pequeñas partículas entran en la cadena alimentaria</li>
+                        <li><strong>Emisiones:</strong> La producción de plástico genera grandes cantidades de CO2</li>
+                    </ul>
+
+                    <h3>Alternativas al plástico de un solo uso:</h3>
+                    <ul>
+                        <li>Usa bolsas de tela reutilizables para las compras</li>
+                        <li>Lleva tu propia botella de agua reutilizable</li>
+                        <li>Compra productos a granel para evitar envases innecesarios</li>
+                        <li>Usa popotes/pajitas de metal, bambú o vidrio</li>
+                        <li>Prefiere envases de vidrio o metal en lugar de plástico</li>
+                        <li>Lleva tus propios contenedores para comida para llevar</li>
+                        <li>Usa cepillos de dientes de bambú</li>
+                        <li>Evita productos con microplásticos (exfoliantes, pasta dental)</li>
+                    </ul>
+
+                    <h3>Regla de las 5 R:</h3>
+                    <ul>
+                        <li><strong>Rechazar:</strong> Di no a productos plásticos innecesarios</li>
+                        <li><strong>Reducir:</strong> Compra solo lo que necesitas</li>
+                        <li><strong>Reutilizar:</strong> Dale una segunda vida a los objetos</li>
+                        <li><strong>Reciclar:</strong> Separa correctamente tus residuos</li>
+                        <li><strong>Rot (Compostar):</strong> Convierte residuos orgánicos en abono</li>
+                    </ul>
+
+                    <p><strong>Pequeños cambios, gran impacto:</strong> Cada vez que rechazas un plástico de un solo uso, estás ayudando a proteger nuestros océanos y la vida silvestre.</p>
+                `
+            },
+            reciclaje: {
+                titulo: ' Reciclaje',
+                color: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                contenido: `
+                    <h2>Reciclaje</h2>
+                    <div class="imagen" style="background-image: url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800');"></div>
+                    
+                    <p>El reciclaje es el proceso de convertir materiales usados en nuevos productos, reduciendo así el consumo de materias primas, el uso de energía y la contaminación. Es una de las formas más efectivas de reducir nuestro impacto ambiental.</p>
+
+                    <h3>Beneficios del reciclaje:</h3>
+                    <ul>
+                        <li><strong>Conserva recursos naturales:</strong> Reduce la necesidad de extraer nuevas materias primas</li>
+                        <li><strong>Ahorra energía:</strong> Reciclar aluminio ahorra 95% de la energía necesaria para producirlo</li>
+                        <li><strong>Reduce contaminación:</strong> Disminuye emisiones de gases de efecto invernadero</li>
+                        <li><strong>Crea empleos:</strong> La industria del reciclaje genera miles de empleos</li>
+                        <li><strong>Protege ecosistemas:</strong> Reduce la necesidad de vertederos</li>
+                    </ul>
+
+                    <h3>Guía de separación de residuos:</h3>
+                    <ul>
+                        <li><strong>Papel y cartón:</strong> Periódicos, revistas, cajas (sin grasa ni comida)</li>
+                        <li><strong>Plástico:</strong> Botellas, envases con símbolos de reciclaje (limpios y secos)</li>
+                        <li><strong>Vidrio:</strong> Botellas y frascos (sin tapas ni etiquetas)</li>
+                        <li><strong>Metal:</strong> Latas de aluminio y acero</li>
+                        <li><strong>Orgánicos:</strong> Restos de comida y jardín (para compostaje)</li>
+                        <li><strong>Electrónicos:</strong> Llevar a centros especializados</li>
+                    </ul>
+
+                    <h3>Consejos para reciclar correctamente:</h3>
+                    <ul>
+                        <li>Limpia los envases antes de reciclarlos (enjuaga con agua)</li>
+                        <li>Aplasta botellas y cajas para ahorrar espacio</li>
+                        <li>Retira tapas y etiquetas cuando sea posible</li>
+                        <li>No mezcles diferentes tipos de materiales</li>
+                        <li>Conoce el sistema de reciclaje de tu localidad</li>
+                        <li>No contamines el reciclaje con basura común</li>
+                        <li>Reutiliza antes de reciclar cuando sea posible</li>
+                    </ul>
+
+                    <h3>Datos interesantes:</h3>
+                    <ul>
+                        <li>Una tonelada de papel reciclado salva 17 árboles</li>
+                        <li>Reciclar una lata de aluminio ahorra suficiente energía para ver TV por 3 horas</li>
+                        <li>El vidrio puede reciclarse infinitas veces sin perder calidad</li>
+                        <li>Una botella de plástico puede tardar 450 años en descomponerse</li>
+                    </ul>
+
+                    <p><strong>¡Reciclar es fácil!</strong> Solo necesitas separar tus residuos y llevarlos al contenedor correcto. Con este simple hábito, contribuyes enormemente a la salud del planeta.</p>
+                `
+            }
+        };
+
+        function cargarTema(tema) {
+            const contenido = document.getElementById('contenido');
+            const menu = document.getElementById('menu');
+            const container = document.querySelector('.container');
+            
+            contenido.innerHTML = temas[tema].contenido + 
+                '<button class="btn-volver" onclick="volverMenu()">← Volver al Menú</button>';
+            
+            contenido.classList.add('active');
+            menu.style.display = 'none';
+            document.querySelector('h1').style.display = 'none';
+            document.querySelector('.subtitle').style.display = 'none';
+            
+          
+            document.body.style.background = temas[tema].color;
+        }
+
+        function volverMenu() {
+            const contenido = document.getElementById('contenido');
+            const menu = document.getElementById('menu');
+            
+            contenido.classList.remove('active');
+            menu.style.display = 'grid';
+            document.querySelector('h1').style.display = 'block';
+            document.querySelector('.subtitle').style.display = 'block';
+            
+            
+            document.body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        }
+    </script>
+</body>
+</html>
